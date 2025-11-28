@@ -1,4 +1,3 @@
-// Define interface for User data from JSONPlaceholder
 interface User {
   id: number;
   name: string;
@@ -7,7 +6,6 @@ interface User {
   website: string;
 }
 
-// DOM Elements
 const modal = document.getElementById('modal') as HTMLElement;
 const openModalBtn = document.getElementById('openModalBtn') as HTMLButtonElement;
 const closeBtn = document.querySelector('.close-btn') as HTMLElement;
@@ -15,9 +13,6 @@ const loadDataBtn = document.getElementById('loadDataBtn') as HTMLButtonElement;
 const dataGrid = document.getElementById('dataGrid') as HTMLElement;
 const navbar = document.querySelector('.navbar') as HTMLElement;
 
-// --- Modal Functionality ---
-
-// Open modal
 if (openModalBtn) {
   openModalBtn.addEventListener('click', () => {
     if (modal) {
@@ -26,7 +21,6 @@ if (openModalBtn) {
   });
 }
 
-// Close modal
 if (closeBtn) {
   closeBtn.addEventListener('click', () => {
     if (modal) {
@@ -35,14 +29,12 @@ if (closeBtn) {
   });
 }
 
-// Close modal when clicking outside
 window.addEventListener('click', (event: MouseEvent) => {
   if (event.target === modal) {
     modal.style.display = 'none';
   }
 });
 
-// --- Scroll Effect ---
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     navbar?.classList.add('scrolled');
@@ -51,11 +43,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// --- Data Fetching ---
-
-/**
- * Fetches user data from JSONPlaceholder API
- */
 async function fetchUsers(): Promise<void> {
   try {
     loadDataBtn.textContent = 'Loading...';
@@ -79,17 +66,12 @@ async function fetchUsers(): Promise<void> {
   }
 }
 
-/**
- * Renders user cards to the DOM
- * @param users Array of User objects
- */
 function renderUsers(users: User[]): void {
-  dataGrid.innerHTML = ''; // Clear existing content
+  dataGrid.innerHTML = ''; 
 
   users.forEach((user, index) => {
     const card = document.createElement('div');
     card.className = 'card';
-    // Add staggered animation delay
     card.style.animationDelay = `${index * 0.1}s`;
 
     card.innerHTML = `
@@ -103,7 +85,6 @@ function renderUsers(users: User[]): void {
   });
 }
 
-// Attach event listener to load button
 if (loadDataBtn) {
   loadDataBtn.addEventListener('click', fetchUsers);
 }
