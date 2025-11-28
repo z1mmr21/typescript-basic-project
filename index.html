@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Interactivity Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">TS Demo</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#data">Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="container">
+            <h1 class="fade-in">Experience TypeScript Power</h1>
+            <p class="fade-in delay-1">Modern, interactive, and type-safe web development.</p>
+            <button id="openModalBtn" class="btn primary fade-in delay-2">Learn More</button>
+        </div>
+    </header>
+
+    <section id="data" class="data-section">
+        <div class="container">
+            <h2>Dynamic Data</h2>
+            <p>Fetch data from JSONPlaceholder with type safety.</p>
+            <button id="loadDataBtn" class="btn secondary">Load Users</button>
+            <div id="dataGrid" class="grid-container">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Welcome to TypeScript</h2>
+            <p>This modal is controlled by TypeScript event listeners. It demonstrates how to manipulate the DOM with type safety.</p>
+            <p>We are using strict typing to ensure that our elements exist before we try to access them.</p>
+        </div>
+    </div>
+
+    <script src="dist/index.js"></script>
+</body>
+</html>
